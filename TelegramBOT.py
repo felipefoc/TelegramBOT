@@ -41,20 +41,14 @@ def handle(msg):
 
 
 def upbot():
-    while bot.getUpdates() == []:
+    if bot.getUpdates(allowed_updates=True) == []:
         print('Parametros do getUpdates não foram atualizados.')
         time.sleep(10)
-    else:
-        print('Novos parametros carregados...')
-        newuser()
-
-
-
 
 
 MessageLoop(bot, handle).run_as_thread()
 print('Listening ...')
-
+upbot()
 
 while 1:
     time.sleep(10)
