@@ -1,5 +1,7 @@
+aiohttp==3.6.2
 appdirs==1.4.4
 astroid==2.4.1
+async-timeout==3.0.1
 attrs==19.3.0
 cached-property==1.5.1
 certifi==2020.4.5.1
@@ -8,12 +10,14 @@ colorama==0.4.3
 DateTime==4.3
 defusedxml==0.6.0
 Deprecated==1.2.10
+gunicorn==20.0.4
 idna==2.9
 isodate==0.6.0
 isort==4.3.21
 lazy-object-proxy==1.4.3
 lxml==4.5.0
 mccabe==0.6.1
+multidict==4.7.6
 public==2019.4.13
 pycep-correios==4.0.1
 pylint==2.5.2
@@ -21,11 +25,12 @@ pytz==2020.1
 requests==2.23.0
 requests-toolbelt==0.9.1
 six==1.14.0
+telepot==12.7
 timedelta==2019.4.13
 toml==0.10.1
 urllib3==1.25.9
 validate-docbr==1.7.0
 wrapt==1.12.1
+yarl==1.4.2
 zeep==3.4.0
 zope.interface==5.1.0
-telepot==12.7
