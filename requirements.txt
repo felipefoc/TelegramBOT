@@ -28,3 +28,4 @@ validate-docbr==1.7.0
 wrapt==1.12.1
 zeep==3.4.0
 zope.interface==5.1.0
+telepot==12.7

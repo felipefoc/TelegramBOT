@@ -7,7 +7,7 @@ f = open("users.txt", "r")
 userstxt = f.readline()
 users = list(userstxt.split(" "))
 usersstring = str(' ')
-bot.sendMessage(-1001155258682, 'dener comendo o cu do empada')
+
 
 def listtostr():
     usersstring = str(' '.join(users))
