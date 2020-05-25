@@ -42,7 +42,7 @@ def handle(msg):
     elif 'cu' in command.lower():
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu')
 
-
+bot.sendMessage(-1001155258682, 'BOT ligado')
 MessageLoop(bot, handle).run_as_thread()
 while True:
     time.sleep(5)
