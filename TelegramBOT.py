@@ -9,10 +9,11 @@ users = list(userstxt.split(" "))
 usersstring = str(' ')
 
 
-'''def listtostr():
+def listtostr():
     usersstring = str(' '.join(users))
     with open("users.txt", "w") as output:
         output.write(usersstring)
+
 
 def newuser():
     try:
@@ -23,12 +24,12 @@ def newuser():
                 bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
                 listtostr()
     except telepot.exception.TelegramError:
-        pass'''
+        pass
 
 
 def handle(msg):
     chat = msg['from']['first_name']
-    # newuser()
+    newuser()
     try:
         command = msg['text']
     except KeyError:
@@ -42,11 +43,6 @@ def handle(msg):
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu')
 
 
-
-
-
-while 1:
-    print('Listening ...')
-    time.sleep(2)
-
-
+MessageLoop(bot, handle).run_as_thread()
+while True:
+    time.sleep(1)
