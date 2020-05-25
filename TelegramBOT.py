@@ -38,17 +38,13 @@ def handle(msg):
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)))
     elif 'cu' in  command.lower():
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu')
+    newuser()
 
-
-def upbot():
-    if bot.getUpdates(allowed_updates=True) == []:
-        print('Parametros do getUpdates não foram atualizados.')
-        time.sleep(10)
 
 
 MessageLoop(bot, handle).run_as_thread()
 print('Listening ...')
-upbot()
+
 
 while 1:
-    time.sleep(10)
+    time.sleep(5)
