@@ -17,7 +17,7 @@ def listtostr():
 
 def newuser():
     try:
-        for i in bot.getUpdates(offset=100000001):
+        for i in bot.getUpdates(offset=100000001, timeout=20):
             firstname = i['message']['from']['first_name']
             if firstname not in users:
                 users.append(firstname)
@@ -45,4 +45,4 @@ def handle(msg):
 
 MessageLoop(bot, handle).run_as_thread()
 while True:
-    time.sleep(1)
+    time.sleep(5)
