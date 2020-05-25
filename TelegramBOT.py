@@ -47,7 +47,6 @@ def handle(msg):
 
 while 1:
     print('Listening ...')
-    MessageLoop(bot, handle).run_forever()
     time.sleep(2)
 
 
