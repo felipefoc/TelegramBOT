@@ -15,12 +15,15 @@ def listtostr():
         output.write(usersstring)
 
 def newuser():
-    for i in bot.getUpdates(allowed_updates=True):
-        firstname = i['message']['from']['first_name']
-        if firstname not in users:
-            users.append(firstname)
-            bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
-            listtostr()
+    try:
+        for i in bot.getUpdates(allowed_updates=True):
+            firstname = i['message']['from']['first_name']
+            if firstname not in users:
+                users.append(firstname)
+                bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
+                listtostr()
+    except telepot.exception.TelegramErro:
+        print('telepot.exception.TelegramErro')
 
 
 def handle(msg):
