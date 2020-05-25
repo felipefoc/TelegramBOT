@@ -8,21 +8,19 @@ userstxt = f.readline()
 users = list(userstxt.split(" "))
 usersstring = str(' ')
 
+
 def listtostr():
     usersstring = str(' '.join(users))
     with open("users.txt", "w") as output:
         output.write(usersstring)
 
 def newuser():
-    try:
-        for i in bot.getUpdates(allowed_updates=True, offset=100000001):
-            firstname = i['message']['from']['first_name']
-            if firstname not in users:
-                users.append(firstname)
-                bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
-                listtostr()
-    except telepot.exception.TelegramErro:
-        print('telepot.exception.TelegramErro')
+    for i in bot.getUpdates(allowed_updates=True, offset=100000001):
+        firstname = i['message']['from']['first_name']
+        if firstname not in users:
+            users.append(firstname)
+            bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
+            listtostr()
 
 
 def handle(msg):
@@ -40,8 +38,6 @@ def handle(msg):
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)))
     elif 'cu' in  command.lower():
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu')
-    newuser()
-
 
 
 MessageLoop(bot, handle).run_as_thread()
