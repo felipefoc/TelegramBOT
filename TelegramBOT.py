@@ -8,7 +8,6 @@ userstxt = f.readline()
 users = list(userstxt.split(" "))
 usersstring = str(' ')
 
-
 def listtostr():
     usersstring = str(' '.join(users))
     with open("users.txt", "w") as output:
@@ -16,7 +15,7 @@ def listtostr():
 
 def newuser():
     try:
-        for i in bot.getUpdates(allowed_updates=True):
+        for i in bot.getUpdates(allowed_updates=True, offset=100000001):
             firstname = i['message']['from']['first_name']
             if firstname not in users:
                 users.append(firstname)
