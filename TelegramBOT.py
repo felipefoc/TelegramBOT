@@ -2,7 +2,7 @@ import telepot
 import time
 from telepot.loop import MessageLoop
 
-bot = telepot.Bot('1180280159:AAEFHdebdPYp6E-HIly7OQsZ_X9trVjcSqk')
+bot = telepot.Bot('1180280159:AAG86yHzMoqnvTC1vp1q3UBgb0oY4lpKIYQ')
 f = open("users.txt", "r")
 userstxt = f.readline()
 users = list(userstxt.split(" "))
