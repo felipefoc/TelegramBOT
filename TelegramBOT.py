@@ -2,7 +2,7 @@ import telepot
 import time
 from telepot.loop import MessageLoop
 
-bot = telepot.Bot('1180280159:AAG86yHzMoqnvTC1vp1q3UBgb0oY4lpKIYQ')
+bot = telepot.Bot('1180280159:AAGt0lOrPGmvoMLDE_7S2CHm43i72Gc8ATw')
 f = open("users.txt", "r")
 userstxt = f.readline()
 users = list(userstxt.split(" "))
@@ -15,7 +15,7 @@ def listtostr():
         output.write(usersstring)
 
 def newuser():
-    for i in bot.getUpdates(allowed_updates=True, offset=100000001):
+    for i in bot.getUpdates(offset=100000001):
         firstname = i['message']['from']['first_name']
         if firstname not in users:
             users.append(firstname)
@@ -40,7 +40,7 @@ def handle(msg):
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu')
 
 
-MessageLoop(bot, handle).run_as_thread()
+MessageLoop(handle).run_as_thread()
 print('Listening ...')
 
 
