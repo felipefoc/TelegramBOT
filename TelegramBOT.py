@@ -38,7 +38,9 @@ def handle(msg):
     if command == '/users':
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)),reply_to_message_id=message_id)
     elif 'cu' in command.lower():
-        bot.(-1001155258682, 'Agora eu to puto e vo comer teu cu', reply_to_message_id=message_id)
+        bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu', reply_to_message_id=message_id)
+    if command == '@messageid':
+        print(message_id)
     if command == '@closeapp':
         bot.sendMessage(-1001155258682,'Finalizando....')
         time.sleep(2)
