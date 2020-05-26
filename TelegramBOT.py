@@ -16,19 +16,17 @@ def listtostr():
 
 
 def newuser():
-    try:
-        for i in bot.getUpdates(offset=100000001, timeout=20):
-            firstname = i['message']['from']['first_name']
-            if firstname not in users:
-                users.append(firstname)
-                bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
-                listtostr()
-    except telepot.exception.TelegramError:
-        pass
+    for i in bot.getUpdates(offset=100000001):
+        firstname = i['message']['from']['first_name']
+        if firstname not in users:
+            users.append(firstname)
+            bot.sendMessage(-1001155258682, '{} foi adicionado aos usuários.'.format(firstname))
+            listtostr()
 
 
 def handle(msg):
     chat = msg['from']['first_name']
+    chat_id = msg['chat']['id']
     newuser()
     try:
         command = msg['text']
@@ -40,9 +38,9 @@ def handle(msg):
     if command == '/users':
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)))
     elif 'cu' in command.lower():
-        bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu')
+        bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu', reply_to_message_id=chat_id)
 
-bot.sendMessage(-1001155258682, 'BOT ligado')
+
 MessageLoop(bot, handle).run_as_thread()
 while True:
     time.sleep(5)
