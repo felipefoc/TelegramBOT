@@ -16,7 +16,7 @@ def listtostr():
 
 
 def newuser():
-    for i in bot.getUpdates(offset=100000001):
+    for i in bot.getUpdates():
         firstname = i['message']['from']['first_name']
         if firstname not in users:
             users.append(firstname)
@@ -39,8 +39,6 @@ def handle(msg):
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)),reply_to_message_id=message_id)
     elif 'cu' in command.lower():
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu',reply_to_message_id=message_id)
-    if command == '@messageid':
-        print(message_id)
 
 
 MessageLoop(bot, handle).run_as_thread()
