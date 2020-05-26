@@ -48,5 +48,5 @@ def handle(msg):
 
 
 MessageLoop(bot, handle).run_as_thread()
-while True:
+while 1:
     time.sleep(5)
