@@ -16,7 +16,7 @@ def listtostr():
 
 
 def newuser():
-    for i in bot.getUpdates():
+    for i in bot.getUpdates(timeout=5):
         firstname = i['message']['from']['first_name']
         if firstname not in users:
             users.append(firstname)
@@ -34,9 +34,9 @@ def handle(msg):
         command = 'Sticker'
     user_id = msg['from']['id']
     print('ID:', user_id, 'Usuário:', chat, ':', command)
-
     if command == '/users':
-        bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)),reply_to_message_id=message_id)
+        bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format('\n'.join(users)),
+                        reply_to_message_id=message_id)
     elif 'cu' in command.lower():
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu',reply_to_message_id=message_id)
 
@@ -44,3 +44,4 @@ def handle(msg):
 MessageLoop(bot, handle).run_as_thread()
 while 1:
     time.sleep(5)
+
