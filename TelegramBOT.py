@@ -26,7 +26,7 @@ def newuser():
 
 def handle(msg):
     chat = msg['from']['first_name']
-    chat_id = msg['chat']['id']
+    message_id = msg['message_id']
     newuser()
     try:
         command = msg['text']
@@ -36,9 +36,9 @@ def handle(msg):
     print('ID:', user_id, 'Usuário:', chat, ':', command)
 
     if command == '/users':
-        bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)))
+        bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format(' '.join(users)),reply_to_message_id=message_id)
     elif 'cu' in command.lower():
-        bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu', reply_to_message_id=chat_id)
+        bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu', reply_to_message_id=message_id)
 
 
 MessageLoop(bot, handle).run_as_thread()
