@@ -1,5 +1,6 @@
 import telepot
 import time
+import random
 from telepot.loop import MessageLoop
 
 bot = telepot.Bot('1180280159:AAGt0lOrPGmvoMLDE_7S2CHm43i72Gc8ATw')
@@ -16,7 +17,7 @@ def listtostr():
 
 
 def newuser():
-    for i in bot.getUpdates(timeout=5):
+    for i in bot.getUpdates(offset=100000001, timeout=5):
         firstname = i['message']['from']['first_name']
         if firstname not in users:
             users.append(firstname)
@@ -39,6 +40,9 @@ def handle(msg):
                         reply_to_message_id=message_id)
     elif 'cu' in command.lower():
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu',reply_to_message_id=message_id)
+    elif 'gay' in command.lower():
+        bot.sendMessage(-1001155258682, 'Hoje, o gay é o {}, certeza que chupa pau'
+                                        ' '.format(random.choice(users)),reply_to_message_id=message_id)
 
 
 MessageLoop(bot, handle).run_as_thread()
