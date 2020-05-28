@@ -40,7 +40,7 @@ def handle(msg):
         command = 'Sticker'
     user_id = msg['from']['id']
     print('ID:', user_id, 'Usuário:', chat, ':', command)
-    if command == '/users' ou '/users@fockythebot':
+    if command == '/users' or '/users@fockythebot':
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format('\n'.join(users)),
                         reply_to_message_id=message_id)
     elif command.lower() == 'cu':
