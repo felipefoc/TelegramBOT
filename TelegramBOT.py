@@ -61,6 +61,7 @@ def handle(msg):
     if command == '/autoscript' or command == '/autoscript@fockythebot':
         bot.sendDocument(-1001155258682, document="BQACAgEAAxkBAAOWXs_HDNo1CdMpIa7439o9DxTULGcAAtgAA6iHeEYhG"
                                                   "SlHeQZRXRkE", reply_to_message_id=message_id)
+        bot.sendVideo(-1001155258682,video='BAACAgEAAxkBAAOaXtAFnbjRObz2ohx4BI3QyEWoX5cAAs4AA6iHgEa_-kwXd6-o7BkE')
 
     if command == '/comandos' or command == '/comandos@fockythebot':
         bot.sendMessage(-1001155258682, 'Comandos até o momento:\n"cu"\n"gay"\nusers\nautoscript\ncomandos'
