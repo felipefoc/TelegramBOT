@@ -15,6 +15,7 @@ gays = ["https://www.guiagaysaopaulo.com.br/public/uploads/imagens/originais/maj
         "n4/Gj243HnHQtM/s1600/kid-bengala73704.jpg"]
 dener = 'https://uploaddeimagens.com.br/images/002/611/945/full/dener.jpg?1587793340'
 
+
 def listtostr():
     usersstring = str(' '.join(users))
     with open("users.txt", "w") as output:
@@ -31,6 +32,7 @@ def newuser():
 
 
 def handle(msg):
+    rusers = random.choice(users)
     chat = msg['from']['first_name']
     message_id = msg['message_id']
     newuser()
@@ -40,23 +42,28 @@ def handle(msg):
         command = 'Sticker'
     user_id = msg['from']['id']
     print('ID:', user_id, 'Usuário:', chat, ':', command)
-    if command == '/users' or '/users@fockythebot':
+
+    if command == '/users' or command == '/users@fockythebot':
         bot.sendMessage(-1001155258682, 'Usuários do grupo : {}'.format('\n'.join(users)),
                         reply_to_message_id=message_id)
-    elif command.lower() == 'cu':
+
+    if command.lower() == 'cu':
         bot.sendMessage(-1001155258682, 'Agora eu to puto e vo comer teu cu', reply_to_message_id=message_id)
-    elif 'gay' in command.lower():
+    
+    if 'gay' in command.lower():
         bot.sendMessage(-1001155258682, 'Hoje, o gay é o {}, certeza que chupa pau'
-                                        ' '.format(random.choice(users)), reply_to_message_id=message_id)
-        if random.choice(users) == 'Dener':
+                                        ' '.format(rusers), reply_to_message_id=message_id)
+        if rusers == 'Dener':
             bot.sendPhoto(-1001155258682, photo=dener)
         else:
             bot.sendPhoto(-1001155258682, photo=random.choice(gays))
-    elif command == '/autoscript' or '/autoscript@fockythebot':
+    
+    if command == '/autoscript' or command == '/autoscript@fockythebot':
         bot.sendDocument(-1001155258682, document="BQACAgEAAxkBAAOWXs_HDNo1CdMpIa7439o9DxTULGcAAtgAA6iHeEYhG"
                                                   "SlHeQZRXRkE", reply_to_message_id=message_id)
-    elif command == '/comandos' or '/comandos@fockythebot':
-        bot.sendMessage(-1001155258682, 'Comandos até o momento:\n"cu"\n"gay"\n"/users\n/autoscript\n/comandos'
+
+    if command == '/comandos' or command == '/comandos@fockythebot':
+        bot.sendMessage(-1001155258682, 'Comandos até o momento:\n"cu"\n"gay"\nusers\nautoscript\ncomandos'
                         , reply_to_message_id=message_id)
 
 
